@@ -1,11 +1,13 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
-function ListItem({name, symbol, priceChangePercentage7d, currentPrice, logoUrl}) {
+function ListItem({name, symbol, priceChangePercentage7d, currentPrice, logoUrl, showBtnSheet }) {
 
     const priceChanggeColor = priceChangePercentage7d > 0 ? "#34c759": "#ff3b30"
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+         onPress={showBtnSheet}
+        >
             <View style={styles.itemWrapper} >
                 {/* left side */}
                 <View style={styles.leftWrapper} >
@@ -31,7 +33,7 @@ function ListItem({name, symbol, priceChangePercentage7d, currentPrice, logoUrl}
 const styles = StyleSheet.create({
 
     itemWrapper:{
-        marginVertical: 20,
+        marginVertical: 18,
         paddingHorizontal: 16,
         flexDirection: 'row',
         justifyContent: "space-between",
